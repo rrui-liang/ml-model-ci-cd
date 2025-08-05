@@ -23,7 +23,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: my-trained-pipeline
-        path: src/trained_models/*.pkl
+        path: titanic_model/trained_models/*.pkl
         retention-days: 1
 
   test:
@@ -40,7 +40,7 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         name: my-trained-pipeline
-        path: src/trained_models
+        path: titanic_model/trained_models
     - name: Install dependencies
       run: pip install -r requirements/test_requirements.txt
     - name: Test with pytest
@@ -60,7 +60,7 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         name: my-trained-pipeline
-        path: src/trained_models
+        path: titanic_model/trained_models
     - name: Install dependencies
       run: pip install --upgrade build
     - name: Build package
