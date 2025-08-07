@@ -10,7 +10,7 @@ class embarkImputer(BaseEstimator, TransformerMixin):
     def __init__(self, variables: str):
 
         if not isinstance(variables, str):
-            raise ValueError("variables should be a str")
+            raise ValueError('variables should be a str')
 
         self.variables = variables
 
@@ -32,7 +32,7 @@ class Mapper(BaseEstimator, TransformerMixin):
     def __init__(self, variables: str, mappings: dict):
 
         if not isinstance(variables, str):
-            raise ValueError("variables should be a str")
+            raise ValueError('variables should be a str')
 
         self.variables = variables
         self.mappings = mappings
