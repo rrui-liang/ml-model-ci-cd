@@ -28,23 +28,23 @@ def make_prediction(*,input_data:Union[pd.DataFrame, dict]) -> dict:
     #validated_data=validated_data.reindex(columns=['Pclass','Sex','Age','Fare', 'Embarked','FamilySize','Has_cabin','Title'])
     validated_data=validated_data.reindex(columns=config.model_config.features)
     #print(validated_data)
-    results = {"predictions": None, "version": _version, "errors": errors}
+    results = {'predictions': None, 'version': _version, 'errors': errors}
     
     predictions = titanic_pipe.predict(validated_data)
 
-    results = {"predictions": predictions,"version": _version, "errors": errors}
+    results = {'predictions': predictions, 'version': _version, 'errors': errors}
     print(results)
     if not errors:
 
         predictions = titanic_pipe.predict(validated_data)
-        results = {"predictions": predictions,"version": _version, "errors": errors}
+        results = {'predictions': predictions, 'version': _version, 'errors': errors}
         #print(results)
 
     return results
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
-    data_in={'PassengerId':[79],'Pclass':[2],'Name':["Caldwell, Master. Alden Gates"],'Sex':['male'],'Age':[0.83],
+    data_in={'PassengerId':[79],'Pclass':[2],'Name':['Caldwell, Master. Alden Gates'],'Sex':['male'],'Age':[0.83],
                 'SibSp':[0],'Parch':[2],'Ticket':['248738'],'Cabin':[np.nan,],'Embarked':['S'],'Fare':[29]}
     
     make_prediction(input_data=data_in)

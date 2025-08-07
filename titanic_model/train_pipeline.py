@@ -13,7 +13,6 @@ from titanic_model.pipeline import titanic_pipe
 from titanic_model.processing.data_manager import load_dataset, save_pipeline
 
 def run_training() -> None:
-    
     """
     Train the model.
     """
@@ -40,5 +39,5 @@ def run_training() -> None:
     save_pipeline(pipeline_to_persist= titanic_pipe)
     # printing the score
     
-if __name__ == "__main__":
+if __name__ == '__main__':
     run_training()
