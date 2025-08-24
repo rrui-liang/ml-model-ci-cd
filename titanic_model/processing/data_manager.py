@@ -37,7 +37,7 @@ f1=lambda x: 0 if type(x) == float else 1  ## Ternary Expression
 
 def pre_pipeline_preparation(*, data_frame: pd.DataFrame) -> pd.DataFrame:
 
-    data_frame["Title"] = data_frame["Name"].apply(get_title)       # Fetching title
+    data_frame['Title'] = data_frame['Name'].apply(get_title)       # Fetching title
 
     data_frame['FamilySize'] = data_frame['SibSp'] + data_frame['Parch'] + 1  # Family size
 
@@ -61,7 +61,8 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
 
 
 def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
-    """Persist the pipeline.
+    """
+    Persist the pipeline.
     Saves the versioned model, and overwrites any previous
     saved models. This ensures that when the package is
     published, there is only one trained model that can be
@@ -69,7 +70,7 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     """
 
     # Prepare versioned save file name
-    save_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
+    save_file_name = f'{config.app_config.pipeline_save_file}{_version}.pkl'
     save_path = TRAINED_MODEL_DIR / save_file_name
 
     remove_old_pipelines(files_to_keep=[save_file_name])
@@ -91,7 +92,8 @@ def remove_old_pipelines(*, files_to_keep: t.List[str]) -> None:
     mapping between the package version and the model
     version to be imported and used by other applications.
     """
-    do_not_delete = files_to_keep + ["__init__.py"]
+
+    do_not_delete = files_to_keep + ['__init__.py']
     for model_file in TRAINED_MODEL_DIR.iterdir():
         if model_file.name not in do_not_delete:
             model_file.unlink()

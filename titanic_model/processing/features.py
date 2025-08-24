@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
 class embarkImputer(BaseEstimator, TransformerMixin):
-    """Embarked column Imputer"""
+    """Embarked column Imputer."""
 
     def __init__(self, variables: str):
 
